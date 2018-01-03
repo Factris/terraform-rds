@@ -1,6 +1,6 @@
 # The lambda function that copies the RDS snapshots on a daily basis
 resource "aws_lambda_function" "backup_rds_daily" {
-  filename         = "${var.rds_backup_script}"
+  filename         = "${path.module}/files/rds-copy-snapshots.py.zip"
   function_name    = "${var.environment}-rds-${aws_rds_cluster.cluster.id}-copy-snapshots-daily"
   role             = "${aws_iam_role.lamdba_rds_backup.arn}"
   runtime          = "python2.7"
