@@ -5,7 +5,7 @@ resource "aws_lambda_function" "backup_rds_daily" {
   role             = "${aws_iam_role.lamdba_rds_backup.arn}"
   runtime          = "python2.7"
   handler          = "rds-copy-snapshots.lambda_handler"
-  source_code_hash = "${base64sha256(file(var.rds_backup_script))}"
+  source_code_hash = "${base64sha256(file("${path.module}/files/rds-copy-snapshots.py.zip"))}"
   timeout          = 180
   memory_size      = 128
   environment      = {

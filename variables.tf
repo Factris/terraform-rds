@@ -23,8 +23,6 @@ variable "rds_backup_window"        { default = "00:00-01:00" }
 variable "rds_maintenance_window"   { default = "mon:01:30-mon:02:30" }
 # The RDS type
 variable "rds_parameter_group_name" { default = "default.aurora5.6" }
-# Path to the backup script (for retention in
-//variable "rds_backup_script"        { default = "./files/rds-copy-snapshots.py.zip" }
 # The retention used by the backup script (days)
 variable "retention_count_daily"    { default = 6 }
 # The retention used by the backup script (weeks)
